@@ -1,51 +1,37 @@
-# ♟️ Chess Performance Analysis – My Games from Chess.com  
+# Chess Performance Analysis
 
-## 📌 Project Overview  
-This project analyzes my personal chess games from [Chess.com](https://www.chess.com/) to uncover insights into my playing style, strengths, and areas for improvement. By treating chess games as a dataset, I demonstrate how data analysis and visualization techniques can transform raw gameplay into meaningful insights.  
+This project analyzes personal chess game data from a PGN file to gain insights into performance trends, opening effectiveness, and results against different opponent ratings.
 
----
+## Setup
 
-## 🔹 Objectives  
-- Analyze win/loss/draw performance across openings  
-- Track rating progression over time  
-- Compare performance as White vs Black  
-- Study results against different opponent rating ranges  
-- Visualize accuracy and improvement trends  
+1.  **Mount Google Drive:** The notebook starts by mounting Google Drive to access the PGN file stored there.
+2.  **Install Libraries:** Necessary libraries (`chess` and `pandas`) are installed.
+3.  **Import Libraries:** The required libraries are imported.
 
----
+## Data Loading and Wrangling
 
-## 🔹 Tools & Technologies  
-- **Python**: Pandas, NumPy, Matplotlib, Seaborn, `chess.pgn`  
-- **SQL**: Querying structured chess data  
-- **Data Source**: Chess.com API & PGN exports  
+1.  **Load PGN Data:** Chess game data is loaded from a PGN file using the `chess.pgn` library.
+2.  **Extract Game Information:** Key information such as date, players, result, opening, time control, and player ratings (WhiteElo and BlackElo) is extracted from the PGN headers and stored in a list of dictionaries.
+3.  **Create DataFrame:** The extracted game information is converted into a pandas DataFrame for easier manipulation and analysis.
+4.  **Calculate Opponent Rating:** A column is added to the DataFrame to store the rating of the opponent for each game.
+5.  **Calculate Your Rating:** A column is added to the DataFrame to track your rating progression over time.
 
----
+## Analysis and Visualization
 
-## 🔹 Key Steps  
-1. **Data Collection** – Extracted game records from Chess.com (PGN & JSON).  
-2. **Data Wrangling** – Cleaned and structured data (date, opponent rating, opening, result, accuracy).  
-3. **Analysis** – Explored performance metrics using Python and SQL.  
-4. **Visualization** – Created dashboards with:  
-   - Win rate by opening (bar chart)  
-   - Rating progression over time (line chart)  
-   - Heatmap of results vs opponent rating  
-   - White vs Black performance comparison  
-5. **Insights** – Identified best openings, rating improvement patterns, and performance gaps.  
+The notebook includes code to generate various visualizations to analyze chess performance:
 
----
+1.  **White vs Black Performance:** Calculates the number of wins as White and Black.
+2.  **Win % by Opening:** Determines the win rate for different chess openings played.
+3.  **Performance vs Opponent Rating:** Analyzes results based on the opponent's rating.
+4.  **Win Rate by Opening (Bar Chart):** Visualizes the win rate for each opening.
+5.  **Rating Progression Over Time (Line Chart):** Shows how the player's rating has changed over time.
+6.  **Heatmap: Results vs Opponent Rating:** Visualizes the average result (win rate) against different bins of opponent ratings.
+7.  **Distribution of Results (Pie Chart):** Displays the overall proportion of wins, losses, and draws.
+8.  **Accuracy by Opening (Boxplot - Requires Accuracy Data):** (Note: This visualization requires accuracy data which is not typically in standard PGN files. If available, this plot can show the distribution of move accuracy for different openings.)
 
-## 🔹 Sample Insights  
-- Strongest opening: *Queen’s Gambit* – highest win rate.  
-- Win rate with **White (65%)** is higher than with **Black (48%)**.  
-- Rating increased by **+200 points in 6 months**, showing steady improvement.  
+## How to Use
 
----
-
-## 🔹 Outcomes  
-This project highlights my ability to:  
-- Collect and clean real-world data  
-- Perform exploratory data analysis (EDA)  
-- Create interactive dashboards for storytelling  
-- Translate raw data into actionable insights  
-
----
+1.  Upload your PGN file to your Google Drive.
+2.  Update the file path in the data loading cell (`/content/drive/My Drive/your_chess_games.pgn`) to point to your PGN file.
+3.  Replace `"Rudra_Pratap18"` with your actual username in the relevant cells for calculating your rating and opponent rating.
+4.  Run the cells sequentially to perform the analysis and generate the visualizations.
